@@ -1,37 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<utils:OrientationContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:LogoDetector"
              xmlns:viewModels="clr-namespace:LogoDetector.ViewModels;assembly=LogoDetector"
-             xmlns:cards="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.XForms"
-             xmlns:xForms="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms"
+                              xmlns:xForms1="clr-namespace:Syncfusion.SfRadialMenu.XForms;assembly=Syncfusion.SfRadialMenu.XForms"
+             xmlns:utils="clr-namespace:LogoDetector.Utils;assembly=LogoDetector"
              x:Class="LogoDetector.MainPage">
 
     <ContentPage.BindingContext>
         <viewModels:MainPageViewModel />
     </ContentPage.BindingContext>
 
-    <StackLayout>
-        <cards:SfCardView  x:Name="Portrait" SwipeToDismiss="False" IndicatorColor="GhostWhite" BackgroundColor="White" IndicatorThickness="12" IndicatorPosition="Left" IsVisible="{Binding initialStep}">
+    <StackLayout x:Name="MainStackLayout">
+
+        <Frame CornerRadius="10" Padding="10" Margin="10" x:Name="LandingImageFrame">
             <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                </Grid.RowDefinitions>
-
-                <Frame Grid.Column="0" Grid.Row="1" CornerRadius="3" Padding="0" HasShadow="False">
-                    <Grid>
-                        <StackLayout>
-                            <Image Source="landing.jpg" VerticalOptions="End" Margin="0,0,0,0" ></Image>
-                        </StackLayout>
-
-                        <xForms:SfBusyIndicator Title="Waiting for image..."  AnimationType="ZoomingTarget" BackgroundColor="DeepSkyBlue" Opacity="0.8" TextColor="DeepSkyBlue" IsVisible="{Binding isProcessing}" />
-                    </Grid>
-
-                </Frame>
-
+                <StackLayout>
+                    <Image x:Name="LandingImage" Source="landing.jpg" Aspect="AspectFill" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"></Image>
+                </StackLayout>
             </Grid>
-        </cards:SfCardView>
+        </Frame>
+        <Frame CornerRadius="10" Margin="10" BorderColor="GhostWhite" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <xForms1:SfRadialMenu BackgroundColor="White"  x:Name="radialMenu" CenterButtonRadius="24"  RimColor="Transparent" RimRadius="100" CenterButtonBackgroundColor="Transparent" CenterButtonBorderColor="Transparent" CenterButtonBorderThickness="3">
+                <xForms1:SfRadialMenu.CenterButtonView>
+                    <Image x:Name="CenterButtonImage" HeightRequest="22" WidthRequest="22"  Source="Hand01.jpg" Aspect="AspectFill" />
+                </xForms1:SfRadialMenu.CenterButtonView>
+                <xForms1:SfRadialMenu.Items>
+                    <xForms1:SfRadialMenuItem Image="Camera.png" ItemHeight="40" ItemWidth="30">
+                    </xForms1:SfRadialMenuItem>
+                    <xForms1:SfRadialMenuItem Image="Picture.png" ItemHeight="40" ItemWidth="30">
+                    </xForms1:SfRadialMenuItem>
+                    <xForms1:SfRadialMenuItem Image="Help02.png" ItemHeight="40" ItemWidth="30">
+                    </xForms1:SfRadialMenuItem>
+                </xForms1:SfRadialMenu.Items>
+            </xForms1:SfRadialMenu>
+        </Frame>
     </StackLayout>
 
-</ContentPage>
+</utils:OrientationContentPage>

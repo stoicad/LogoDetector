@@ -19,6 +19,7 @@
     <PackageReference Include="Syncfusion.Xamarin.SfBusyIndicator" Version="17.1.0.51" />
     <PackageReference Include="Syncfusion.Xamarin.SfRadialMenu" Version="17.1.0.51" />
     <PackageReference Include="Xam.Plugin.Media" Version="4.0.1.5" />
+    <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
     <PackageReference Include="Xamarin.Essentials" Version="1.1.0" />
     <PackageReference Include="Xamarin.Forms" Version="3.3.0.967583" />
   </ItemGroup>

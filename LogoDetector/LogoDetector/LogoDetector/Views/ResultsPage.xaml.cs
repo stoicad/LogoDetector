@@ -13,6 +13,10 @@ namespace LogoDetector.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ResultsPage : ContentPage
     {
+        public ResultsPage()
+        {
+            Title = "Logo details";
+        }
         public ResultsPage(Stream stream)
         {
             InitializeComponent();

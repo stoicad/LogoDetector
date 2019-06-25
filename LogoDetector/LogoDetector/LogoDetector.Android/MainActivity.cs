@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using ImageCircle.Forms.Plugin.Droid;
 using Plugin.CurrentActivity;
 using Plugin.Media;
 using Plugin.Permissions;
@@ -20,7 +21,7 @@ namespace LogoDetector.Droid
             TabLayoutResource = Resource.Layout.Tabbar;
             ToolbarResource = Resource.Layout.Toolbar;
 
-
+            ImageCircleRenderer.Init();
 
             await CrossMedia.Current.Initialize();
 

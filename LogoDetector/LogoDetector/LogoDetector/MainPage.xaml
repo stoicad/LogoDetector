@@ -6,8 +6,13 @@
                               xmlns:xForms1="clr-namespace:Syncfusion.SfRadialMenu.XForms;assembly=Syncfusion.SfRadialMenu.XForms"
              xmlns:utils="clr-namespace:LogoDetector.Utils;assembly=LogoDetector"
              x:Class="LogoDetector.MainPage">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+            <Label Text="Load an image to start..." FontSize="16" TextColor="White" FontAttributes="Italic" HorizontalTextAlignment="Center"/>
+        </StackLayout>
+   </NavigationPage.TitleView>
 
-    <ContentPage.BindingContext>
+            <ContentPage.BindingContext>
         <viewModels:MainPageViewModel />
     </ContentPage.BindingContext>
 

@@ -3,9 +3,5 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LogoDetector.App">
     <Application.Resources>
-        <Style TargetType="NavigationPage">
-            <Setter Property="BarBackgroundColor" Value="Black"></Setter>
-            <Setter Property="BarTextColor" Value="DeepSkyBlue"></Setter>
-        </Style>
     </Application.Resources>
 </Application>

@@ -21,6 +21,7 @@ namespace LogoDetector
         public MainPage()
         {
             InitializeComponent();
+            Title = "Logo detector";
             OnOrientationChanged += DeviceRotated;
         }
 

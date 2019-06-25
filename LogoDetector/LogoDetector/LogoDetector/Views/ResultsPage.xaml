@@ -2,17 +2,58 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:viewModels="clr-namespace:LogoDetector.ViewModels;assembly=LogoDetector"
+             xmlns:cards="clr-namespace:Syncfusion.XForms.Cards;assembly=Syncfusion.Cards.XForms"
+             xmlns:abstractions="clr-namespace:ImageCircle.Forms.Plugin.Abstractions;assembly=ImageCircle.Forms.Plugin"
              x:Class="LogoDetector.Views.ResultsPage">
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="Start" VerticalOptions="Center" Margin="10,0,0,0">
+            <Label Text="Logo detection results..." FontSize="16" TextColor="White" FontAttributes="Italic" HorizontalTextAlignment="Center"/>
+        </StackLayout>
+    </NavigationPage.TitleView>
+
     <ContentPage.BindingContext>
         <viewModels:PageResultsViewModel />
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <cards:SfCardView IndicatorColor="DeepSkyBlue" HeightRequest="100" IndicatorThickness="12" IndicatorPosition="Left">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Frame HasShadow="True" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" CornerRadius="10">
+                      <abstractions:CircleImage  Source="{Binding ImageSource}" HorizontalOptions="StartAndExpand" VerticalOptions="StartAndExpand" Aspect="AspectFit"></abstractions:CircleImage>
+                    </Frame>
+                  <Grid Grid.Column="1" Padding="0,30,0,40">
+                      <Grid.RowDefinitions>
+                          <RowDefinition></RowDefinition>
+                          <RowDefinition></RowDefinition>
+                          <RowDefinition></RowDefinition>
+                          <RowDefinition></RowDefinition>
+                      </Grid.RowDefinitions>
+                       <Label FontAttributes="Bold"> Top scores</Label>
+                      <Label VerticalTextAlignment="Center" HorizontalOptions="Start" FontSize="12" Grid.Row="1" TextColor="DeepSkyBlue" FontAttributes="Italic">Ness Romania</Label>
+                      <Label VerticalTextAlignment="Center" HorizontalOptions="Start" FontSize="12" Grid.Row="2" TextColor="DeepSkyBlue" FontAttributes="Italic">Ness Romania Test</Label>
+                      <Label VerticalTextAlignment="Center" HorizontalOptions="Start" FontSize="12" Grid.Row="3" TextColor="DeepSkyBlue" FontAttributes="Italic">Ness Romania test long test</Label>
+                  </Grid>
+                </Grid>
+            
+            </cards:SfCardView>
+
+            <cards:SfCardView Grid.Row="1" IndicatorColor="DeepSkyBlue" HeightRequest="100" IndicatorThickness="12" IndicatorPosition="Left" >
+
+            </cards:SfCardView>
+            <cards:SfCardView Grid.Row="2" IndicatorColor="DeepSkyBlue" HeightRequest="100" IndicatorThickness="12" IndicatorPosition="Left" >
+
+            </cards:SfCardView>
+        </Grid>
     </ContentPage.Content>
 
 </ContentPage>

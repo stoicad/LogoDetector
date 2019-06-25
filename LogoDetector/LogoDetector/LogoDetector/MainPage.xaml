@@ -21,16 +21,16 @@
             </Grid>
         </Frame>
         <Frame CornerRadius="10" Margin="10" BorderColor="GhostWhite" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-            <xForms1:SfRadialMenu BackgroundColor="White"  x:Name="radialMenu" CenterButtonRadius="24"  RimColor="Transparent" RimRadius="100" CenterButtonBackgroundColor="Transparent" CenterButtonBorderColor="Transparent" CenterButtonBorderThickness="3">
+            <xForms1:SfRadialMenu IsDragEnabled="False" SelectionColor="LightGray" BackgroundColor="White"  x:Name="radialMenu" CenterButtonRadius="24"  RimColor="Transparent" RimRadius="100" CenterButtonBackgroundColor="Transparent" CenterButtonBorderColor="Transparent" CenterButtonBorderThickness="3">
                 <xForms1:SfRadialMenu.CenterButtonView>
                     <Image x:Name="CenterButtonImage" HeightRequest="22" WidthRequest="22"  Source="Hand01.jpg" Aspect="AspectFill" />
                 </xForms1:SfRadialMenu.CenterButtonView>
                 <xForms1:SfRadialMenu.Items>
-                    <xForms1:SfRadialMenuItem Image="Camera.png" ItemHeight="40" ItemWidth="30">
+                    <xForms1:SfRadialMenuItem StyleId="Camera" Image="Camera.png" ItemHeight="40" ItemWidth="30" ItemTapped="SfRadialMenuItem_OnItemTapped">
                     </xForms1:SfRadialMenuItem>
-                    <xForms1:SfRadialMenuItem Image="Picture.png" ItemHeight="40" ItemWidth="30">
+                    <xForms1:SfRadialMenuItem StyleId="Gallery" Image="Picture.png" ItemHeight="40" ItemWidth="30" ItemTapped="SfRadialMenuItem_OnItemTapped">
                     </xForms1:SfRadialMenuItem>
-                    <xForms1:SfRadialMenuItem Image="Help02.png" ItemHeight="40" ItemWidth="30">
+                    <xForms1:SfRadialMenuItem StyleId="Info" Image="Help02.png" ItemHeight="40" ItemWidth="30" ItemTapped="SfRadialMenuItem_OnItemTapped">
                     </xForms1:SfRadialMenuItem>
                 </xForms1:SfRadialMenu.Items>
             </xForms1:SfRadialMenu>

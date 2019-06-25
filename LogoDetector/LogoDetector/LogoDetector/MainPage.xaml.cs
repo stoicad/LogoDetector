@@ -4,12 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LogoDetector.Utils;
+using Plugin.Media;
+using Plugin.Media.Abstractions;
+using Syncfusion.SfRadialMenu.XForms;
 using Xamarin.Forms;
+using ItemTappedEventArgs = Syncfusion.SfRadialMenu.XForms.ItemTappedEventArgs;
 
 namespace LogoDetector
 {
     public partial class MainPage : OrientationContentPage
     {
+        private const string CameraItem = "Camera";
+        private const string GalleryItem = "Gallery";
+        private const string InfoItem = "Info";
         public MainPage()
         {
             InitializeComponent();
@@ -49,5 +56,26 @@ namespace LogoDetector
             await Task.Delay(1000);
             radialMenu.IsOpen = true;
         }
+
+        private async void SfRadialMenuItem_OnItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            string name = ((SfRadialMenuItem)sender).StyleId;
+            if (name == GalleryItem)
+            {
+                var picture = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions());
+            }
+            if (name == CameraItem)
+            {
+                var picture = await CrossMedia.Current.TakePhotoAsync(
+                    new StoreCameraMediaOptions { DefaultCamera = CameraDevice.Front });
+            }
+
+            if (name == InfoItem)
+            {
+                //var nextPage = new InfoPage();
+                //await this.Navigation.PushAsync(nextPage);
+            }
+        }
     }
+
 }

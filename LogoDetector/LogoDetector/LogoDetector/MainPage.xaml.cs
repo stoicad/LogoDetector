@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using LogoDetector.Utils;
+using LogoDetector.Views;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
 using Syncfusion.SfRadialMenu.XForms;
@@ -63,11 +64,15 @@ namespace LogoDetector
             if (name == GalleryItem)
             {
                 var picture = await CrossMedia.Current.PickPhotoAsync(new PickMediaOptions());
+                var nextPage = new ResultsPage(picture.GetStream());
+                await Navigation.PushAsync(nextPage);
             }
             if (name == CameraItem)
             {
                 var picture = await CrossMedia.Current.TakePhotoAsync(
                     new StoreCameraMediaOptions { DefaultCamera = CameraDevice.Front });
+                var nextPage = new ResultsPage(picture.GetStream());
+                await Navigation.PushAsync(nextPage);
             }
 
             if (name == InfoItem)

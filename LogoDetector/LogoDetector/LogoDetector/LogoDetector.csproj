@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Google.Apis.Storage.v1" Version="1.40.2.1631" />
     <PackageReference Include="Plugin.Permissions" Version="3.0.0.12" />
     <PackageReference Include="SoftwareCraft.Result" Version="2.0.0.1" />
     <PackageReference Include="Syncfusion.Licensing" Version="17.1.0.51" />
@@ -24,5 +25,11 @@
 
   <ItemGroup>
     <Folder Include="UseCases\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\ResultsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
